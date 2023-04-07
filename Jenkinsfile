@@ -10,7 +10,7 @@ pipeline {
     stage('SonarQube') {
       steps {
         withSonarQubeEnv('My SonarQube Server') {
-          sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
+          sh 'mvn sonar:sonar -Dsonar.token=$SONAR_TOKEN'
         }
 
       }
