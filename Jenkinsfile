@@ -4,6 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh './mvnw package'
+        sh 'pwd'
+        sh 'ls'
       }
     }
 
