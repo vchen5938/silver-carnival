@@ -7,18 +7,9 @@ pipeline {
       }
     }
 
-    stage('SonarQube') {
-      steps {
-        withSonarQubeEnv('My SonarQube Server') {
-          sh 'mvn sonar:sonar -Dsonar.token=$SONAR_TOKEN'
-        }
-
-      }
-    }
-
     stage('Run') {
       steps {
-        sh 'java -jar target/*.jar --server.port=80 '
+        sh 'ansible-playbook -i /app/my-inventory.ini /app/my-playbook.yaml'
       }
     }
 
