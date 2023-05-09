@@ -19,7 +19,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'cp target/spring-petclinic-3.0.0-SNAPSHOT.jar /app'
-        sh 'ansible-playbook -i /app/my-inventory.ini /app/my-playbook.yaml'
+        sh 'nohup ansible-playbook -i /app/my-inventory.ini /app/my-playbook.yaml &'
       }
     }
 
